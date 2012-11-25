@@ -44,12 +44,13 @@
 	cam.location = cc3v( 0.0, 0.0, 6.0 );
 	[self addChild: cam];
 
-	// Create a light, place it back and to the left at a specific
-	// position (not just directional lighting), and add it to the scene
-	CC3Light* lamp = [CC3Light nodeWithName: @"Lamp"];
-	lamp.location = cc3v( -2.0, 0.0, 0.0 );
-	lamp.isDirectionalOnly = NO;
-	[cam addChild: lamp];
+    // 薄暗い部屋 アンビエント光のみ
+    CC3Light *cc3Light = [CC3Light nodeWithName:@"Light"];
+    cc3Light.isDirectionalOnly = YES;
+    cc3Light.ambientColor  = ccc4f(1.0, 1.0, 1.0, 1);
+    cc3Light.diffuseColor  = ccc4f(1.0, 1.0, 1.0, 1);
+    cc3Light.specularColor = ccc4f(1.0, 1.0, 1.0, 1);
+    [self addChild:cc3Light];
 
 	// This is the simplest way to load a POD resource file and add the
 	// nodes to the CC3Scene, if no customized resource subclass is needed.
