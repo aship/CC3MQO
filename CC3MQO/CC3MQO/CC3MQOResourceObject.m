@@ -70,6 +70,7 @@
             // 頂点+法線+テクスチャをまとめる
             CC3VertexArrayMesh *cc3VertexArrayMesh = [CC3VertexArrayMesh meshWithName:[NSString stringWithFormat:@"%@-MESH-%d",
                                                                                        cc3NodeObject.name, i ] ];
+            cc3VertexArrayMesh.shouldInterleaveVertices = NO;
             cc3VertexArrayMesh.vertexLocations          = cc3VertexLocations;
             cc3VertexArrayMesh.vertexNormals            = cc3VertexNormals;
             cc3VertexArrayMesh.vertexTextureCoordinates = cc3VertexTextureCoordinates;
