@@ -55,11 +55,9 @@
 {
     CC3Texture *cc3Texture = [CC3Texture textureFromFile:aFilepath];
 
-    [ self addTexture:cc3Texture ];
+    [self addTexture:cc3Texture];
     
     CCLOG(@"%@", aFilepath);
-    
-  //  NSLog(@"%@", aFilepath);
     
     // あしp改造
   //  NSLog( @"AHSIP COMVEJFIJEI" );
@@ -69,7 +67,7 @@
     
     // パキラの透過PNGで崩れるのを直す
     self.shouldDrawLowAlpha = NO;
- //   self.shouldDrawLowAlpha = YES;
+  //  self.shouldDrawLowAlpha = YES;
     
     
    // self.alphaTestFunction = GL_NOTEQUAL;

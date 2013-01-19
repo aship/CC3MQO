@@ -14,7 +14,7 @@
 {    
     MQOModelRef mqoModelRef;
 
-    NSMutableArray *mArrMaterial;
+    NSMutableArray *nsMutableArrayMaterials;
     
     // ../../問題を解決するためのカレントパス
     NSString *strCurrentPath;

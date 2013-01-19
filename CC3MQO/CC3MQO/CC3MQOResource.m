@@ -12,6 +12,7 @@
 
 - (void)buildMaterials;
 - (void)buildObjects;
+//- (void)buildCamera;
 
 @end
 
@@ -22,7 +23,7 @@
 	if ( (self = [super init]) )
     {
 		wasLoaded = NO;
-        mArrMaterial = [[NSMutableArray array] retain];
+        nsMutableArrayMaterials = [[NSMutableArray array] retain];
 	}
 	return self;
 }
@@ -63,7 +64,8 @@
     // ここで、ファイルから読み込み
     mqoModelRef = MQOModelRefCreate( [ nsStringAbsoluteFilePath UTF8String ] );
     
-    if (mqoModelRef == NULL) {
+    if ( mqoModelRef == NULL )
+    {
         wasLoaded = NO;
         LogError( @"Could not load MQO file '%@'", nsStringAbsoluteFilePath );
         return NO;
@@ -74,20 +76,28 @@
     [self buildMaterials];
     [self buildObjects];
 
-    MQOModelRefRelease(mqoModelRef);
+        
+    MQOModelRefRelease( mqoModelRef );
+    
     mqoModelRef = NULL;
+    
     return wasLoaded;
 }
 
+
 - (void)dealloc
 {
-    if (mqoModelRef != NULL) {
+    
+    if ( mqoModelRef != NULL )
+    {
         MQOModelRefRelease( mqoModelRef );
         mqoModelRef = NULL;
     }
+        
+    [nsMutableArrayMaterials release];
     
-    [mArrMaterial release];
     [super dealloc];
 }
+
 
 @end

@@ -70,7 +70,7 @@ MQOModelRef MQOModelRefCreate( const char *filename )
 	memset( mqoModelRef, 0, sizeof(MQOModel) );
       
 
-    
+    // 配列を作成
 	MQOObjectChunk mqoObjectChunk[ MAX_OBJECT ];
     
     // メモリを全部０にする
